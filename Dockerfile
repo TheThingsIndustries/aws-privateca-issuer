@@ -1,9 +1,9 @@
-# Build the manager binary
-FROM golang:1.20 as builder
-WORKDIR /workspace
-
 ARG TARGETARCH=amd64
 ARG TARGETOS=linux
+
+# Build the manager binary
+FROM --platform=$BUILDPLATFORM golang:1.20 as builder
+WORKDIR /workspace
 
 ENV GOPROXY=direct
 # Copy the Go Modules manifests
